@@ -1,44 +1,41 @@
+# Alle Patterns hier greifen auf jeder Ebene (also auch in packages/<app>/),
+# da Git Patterns ohne Slash tiefenunabhaengig matcht.
+
 # Miscellaneous
 *.class
-*.lock
 *.log
 *.pyc
 *.swp
+.DS_Store
+.atom/
+.build/
 .buildlog/
 .history
+.svn/
+.swiftpm/
+migrate_working_dir/
 
-# Flutter repo-specific
-/bin/cache/
-/bin/internal/bootstrap.bat
-/bin/internal/bootstrap.sh
-/bin/mingit/
-/dev/benchmarks/mega_gallery/
-/dev/bots/.recipe_deps
-/dev/bots/android_tools/
-/dev/devicelab/ABresults*.json
-/dev/docs/doc/
-/dev/docs/flutter.docs.zip
-/dev/docs/lib/
-/dev/docs/pubspec.yaml
-/dev/integration_tests/**/xcuserdata
-/dev/integration_tests/**/Pods
-/packages/flutter/coverage/
-version
-analysis_benchmark.json
+# IntelliJ / Android Studio
+*.iml
+*.ipr
+*.iws
+.idea/
 
-# packages file containing multi-root paths
-.packages.generated
+# VS Code enthaelt Launch-Configs, die man ggf. committen will:
+#.vscode/
 
 # Flutter/Dart/Pub related
 **/doc/api/
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
-**/generated_plugin_registrant.dart
 .packages
-.pub-preload-cache/
+.pub-cache/
 .pub/
+.pub-preload-cache/
 build/
+coverage/
+**/generated_plugin_registrant.dart
 flutter_*.png
 linked_*.ds
 unlinked.ds
@@ -50,7 +47,11 @@ unlinked_spec.ds
 # Widget Preview related
 .widget_preview/
 
-# Android related
+# Symbolication / Obfuscation
+app.*.symbols
+app.*.map.json
+
+# Android
 **/android/**/gradle-wrapper.jar
 .gradle/
 **/android/captures/
@@ -59,9 +60,12 @@ unlinked_spec.ds
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
 **/android/key.properties
+**/android/app/debug
+**/android/app/profile
+**/android/app/release
 *.jks
 
-# iOS/XCode related
+# iOS / Xcode
 **/ios/**/*.mode1v3
 **/ios/**/*.mode2v3
 **/ios/**/*.moved-aside
@@ -73,10 +77,8 @@ unlinked_spec.ds
 **/ios/**/.vagrant/
 **/ios/**/DerivedData/
 **/ios/**/Icon?
-**/ios/**/Pods/
 **/ios/**/.symlinks/
 **/ios/**/profile
-**/ios/**/xcuserdata
 **/ios/.generated/
 **/ios/Flutter/.last_build_id
 **/ios/Flutter/App.framework
@@ -93,9 +95,10 @@ unlinked_spec.ds
 
 # macOS
 **/Flutter/ephemeral/
-**/Pods/
 **/macos/Flutter/GeneratedPluginRegistrant.swift
 **/macos/Flutter/ephemeral
+**/Pods/
+**/dgph
 **/xcuserdata/
 
 # Windows
@@ -108,16 +111,8 @@ unlinked_spec.ds
 **/linux/flutter/generated_plugin_registrant.h
 **/linux/flutter/generated_plugins.cmake
 
-# Coverage
-coverage/
-
-# Symbols
-app.*.symbols
-
-# Exceptions to above rules.
+# Ausnahmen zu den Regeln oben
 !**/ios/**/default.mode1v3
 !**/ios/**/default.mode2v3
 !**/ios/**/default.pbxuser
 !**/ios/**/default.perspectivev3
-!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
-!/dev/ci/**/Gemfile.lock
